@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TPBase.Controllers;
+namespace TP06.Controllers;
 
 public class HomeController : Controller
 {

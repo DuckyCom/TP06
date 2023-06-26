@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "TPBase": {
+    "TP06": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
