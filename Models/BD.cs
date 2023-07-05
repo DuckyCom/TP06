@@ -1,27 +1,9 @@
 namespace TP06.Models;
-
-public class Partido
-{
-    public int IdPartido {get; set;}
-    public int CantidadDiputados {get; set;}
-    public int CantidadSenadores {get; set;}
-    public string Nombre {get; set;}
-    public string Logo {get; set;}
-    public string SitioWeb {get; set;}
-    public DateTime FechaFundacion {get; set;}
-}
-public class Candidato
-{
-    public int IdPartido {get; set;}
-    public int IdCandidato {get; set;}
-    public string Nombre {get; set;}
-    public string Apellido {get; set;}
-    public string Foto {get; set;}
-    public string Postulacion {get; set;}
-    public DateTime FechaNacimiento {get; set;}
-}
+using System.Data.SqlClient;
+using Dapper;
 public static class BD
 { //Crear todos los métodos privados que se requieran
+private static string _connectionString = @"Server=localhost;Database=Elecciones2023.sql;Trusted_Connection=True;";
 
 static void AgregarCandidato(Candidato can)
 {
@@ -33,14 +15,26 @@ static void EliminarCandidato(int idCandidato)
 
 }
 //¿devuelve un "objeto partido"?
-static void VerInfoPartido(int idPartido)
+public static Partido VerInfoPartido(int pidPartido)
 {
-
+    Partido miPartido = null;
+    using(SqlConnection db = new SqlConnection(_connectionString))
+    {
+        string sql = "SELECT * FROM Partido WHERE IdPartido = @pidPartido";
+        miPartido = db.QueryFirstOrDefault<Partido>(sql, new {IdPartido = pidPartido}); 
+    }
+    return miPartido;
 }
 //lo mismo que arriba
-static void VerInfoCandidato(int idCandidato)
+public static Candidato VerInfoCandidato(int pidCandidato)
 {
-
+    Candidato miCandidato = null;
+    using(SqlConnection db = new SqlConnection(_connectionString))
+    {
+        string sql = "SELECT * FROM Partido WHERE IdCandidato = @pidCandidato";
+        miCandidato = db.QueryFirstOrDefault<Candidato>(sql, new {IdCandidato = pidCandidato}); 
+    }
+    return miCandidato;
 }
 
 /* static List ListarPartidos()
