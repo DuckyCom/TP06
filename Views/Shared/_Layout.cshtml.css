@@ -1,6 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -45,4 +46,30 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+}
+/*INDEX*/
+.div1{
+  padding: 5%;
+  text-align: center;
+}
+.div1 p{
+  margin: 1%;
+  font-size: 23px;
+  font-family:'Work-Sans';
+}
+.div1 section{
+  display: flex;
+  height: 500px;
+}
+.div1 section img{
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: .8;
+  transition: .5s ease;
+}
+.div1 section img:hover{
+  width: 100px;
+  opacity: 1;
+  filter: contrast(120%);
 }

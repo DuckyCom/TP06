@@ -3,19 +3,31 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - TPXX - Apellido</title>
+        <title>@ViewData["Title"] - 06 - Apellido</title>
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </head>
     <body>
         <header style="position:fixed; top: 0; margin: 10px 0px 20px 0px;">
-            Encabezado TP XX
-        </header>
-        <div style="padding:20px 10px 0px 10px;">
+                    <div class="logopais">
+            <img src="~\img\LogoARG.png" alt="Bandera de argentina"> @* no funciona porque: *Insertar problema de html* *@
+        </div>
+        <div class="texto-nav3">
+            <h2>Elecciones 2023</h2>
+        </div>
+        <nav class="nav1">
+            <ul>
+                <li><a href='@Url.Action("Index", "Home")'>Inicio</a></li>
+                <li><a href='@Url.Action("Elecciones", "Home")'>Elecciones</a></li>
+                <li><a href='@Url.Action("Creditos","Home")'>Creditos</a></li>
+
+            </ul>
+        </nav>
+        <div style="padding:10px 10px 0px 10px;">
             @RenderBody()
         </div>
-
+        </header>
         <footer>
-                &copy; @DateTime.Now.Year - Taller de Programación - TPXX
+                &copy; @DateTime.Now.Year - Elecciones 2023 - TP06
         </footer>
         <script src="~/js/site.js" asp-append-version="true"></script>
         @await RenderSectionAsync("Scripts", required: false)

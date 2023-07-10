@@ -19,3 +19,63 @@ footer {
   bottom: 0; 
   margin: 10px 0px 20px 0px;
 }
+
+header{
+  background-color: #ffffff ;
+  display: flex;
+  font-size: 20px;
+  width: auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 5px 300px;
+}
+
+header .logoempresa img{
+  width: auto;
+  height: 70px;
+}
+
+header .logoempresa img:hover{
+  transform: scale(1.1);
+
+}
+
+header nav ul a{
+  font-family: "Nunito Sans","Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color imagen","Segoe UI imagen","Segoe UI Symbol";
+  list-style: none;
+}
+
+header ul li{
+  display: inline-block;
+  padding: 0 5px;
+}
+
+header .texto-nav3{
+  margin-right: auto;
+  margin-left: 20px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 25px;
+  text-shadow: 2px 2px 4px rgb(114, 98, 98);
+  color: #1d1d1d; 
+} 
+
+header ul li:hover{
+  transform: scale(1.1);
+}
+
+header ul a{
+  text-decoration: none;
+  color: rgb(12, 12, 12);
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+  padding: 9px 25px;
+}
+
+header ul a:hover{
+  text-decoration:double;
+  background: rgb(0, 0, 0);
+  color: #ffffff;
+  transform: scale(1.1);
+}
