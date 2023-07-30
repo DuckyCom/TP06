@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "DetalleCandidato";
+    string fecha=((DateTime)ViewBag.Candidato.FechaNacimiento).ToShortDateString();
+}
+<body>
+    <div class="candidate-description">
+        <div class="candidate-info">
+            <img src="@ViewBag.Candidato.Foto" alt="Foto del Candidato">
+            <h2 class="candidate-name">@ViewBag.Candidato.Nombre @ViewBag.Candidato.Apellido</h2>
+            <p class="candidate-birthdate">Fecha de Nacimiento: @fecha</p>
+            <p class="candidate-position">Postulación: @ViewBag.Candidato.Postulacion</p>
+            <br>
+            <br>
+            <br>
+            <form action='@Url.Action("VerDetallePartido", "Home")'>
+                <input type="hidden" value="@ViewBag.Candidato.IdPartido" name="IdPartido">
+                <input type="submit" value="Volver al partido">
+            </form>
+        </div>
+    </div>
+</body> 

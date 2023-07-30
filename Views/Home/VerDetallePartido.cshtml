@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "DetallePartido";
+    string fecha=((DateTime)ViewBag.Partido.FechaFundacion).ToShortDateString();
+    string logo = "~/" + ViewBag.Partido.Logo;
+}
+<body>
+    <div class="party-info">
+        <img src="@logo" alt="Logo del Partido (no funciona por alguna razon)">
+        <p class="founding-date">Nombre: @ViewBag.Partido.Nombre</p>
+        <p class="founding-date">Fecha de fundacion: @fecha</p>
+    </div>
+    <div class="candidatos-container">
+        <div class="scroll-container2">
+            <ul class="candidatos-list"></ul>
+            @foreach (var item in @ViewBag.ListarCandidatos)
+            {
+                <form action='@Url.Action("VerDetalleCandidato", "Home")'>
+                <input type="hidden" value="@item.IdCandidato" name="IdCandidato">
+                <li>Candidato @item.IdCandidato, @item.Nombre @item.Apellido.</li> 
+                <input type="submit" value="Ver Informacion">
+                </form>
+
+                <form action='@Url.Action("EliminarCandidato", "Home")'>
+                <input type="hidden" value="@item.IdCandidato" name="IdCandidato">
+                <input type="hidden" value="@ViewBag.Partido.IdPartido" name="IdPartido">
+                <input type="submit" value="Eliminar Candidato">
+                </form>
+            } 
+            </ul>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <form action='@Url.Action("AgregarCandidato", "Home")'>
+            <input type="hidden" value="@ViewBag.Partido.IdPartido" name="IdPartido">
+            <input type="submit" value="Agregar Candidato">
+        </form>
+    </div>
+</body>

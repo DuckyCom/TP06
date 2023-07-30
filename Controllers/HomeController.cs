@@ -13,29 +13,33 @@ public class HomeController : Controller
     }
     public IActionResult VerDetallePartido(int idPartido)
     {
-        ViewBag.Partido = BD.VerInfoPartido(idPartido);
         ViewBag.ListarCandidatos = BD.ListarCandidatos(idPartido);
-        return View("DetallePartido");
+        ViewBag.Partido = BD.VerInfoPartido(idPartido);
+        return View("VerDetallePartido");
     }
     public IActionResult VerDetalleCandidato(int idCandidato)
     {
         ViewBag.Candidato = BD.VerInfoCandidato(idCandidato);
-        return View("DetalleCandidato");
+        return View("VerDetalleCandidato");
     }
-    [HttpPost]
     public IActionResult GuardarCandidato(Candidato can)
     {
         BD.AgregarCandidato(can);
         ViewBag.Partido = BD.VerInfoPartido(can.IdPartido);
         ViewBag.ListarCandidatos = BD.ListarCandidatos(can.IdPartido);
-        return View("DetallePartido");
+        return View("VerDetallePartido");
     }
-    public IActionResult GuardarCandidato(int idCandidato, int IdPartido)
+    public IActionResult AgregarCandidato(int idPartido)
     {
-        BD.EliminarCandidato(idCandidato);
-        ViewBag.Partido = BD.VerInfoPartido(IdPartido);
-        ViewBag.ListarCandidatos = BD.ListarCandidatos(IdPartido);
-        return View("DetallePartido");
+        ViewBag.IdPartido = idPartido;
+        return View();
+    }
+    public IActionResult EliminarCandidato(int IdCandidato, int idPartido)
+    {
+        int registrosEliminados = BD.EliminarCandidato(IdCandidato);
+        ViewBag.ListarCandidatos = BD.ListarCandidatos(idPartido);
+        ViewBag.Partido = BD.VerInfoPartido(idPartido);
+        return View("VerDetallePartido");
     }
     public IActionResult Elecciones()
     {

@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <div class="form-container">
+        <h2>Agregar Candidato</h2>
+        <form action='@Url.Action("GuardarCandidato", "Home")'>
+            <input type="hidden" value="@ViewBag.IdPartido" name="IdPartido">
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="Apellido" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="Nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha-nacimiento" name="FechaNacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="foto">Foto:</label>
+                <input type="text" id="foto" name="Foto" required>
+            </div>
+            <div class="form-group">
+                <label for="postulacion">Postulación:</label>
+                <input type="text" id="postulacion" name="Postulacion" required>
+            </div>
+            <button type="submit">Agregar Candidato</button>
+        </form>
+    </div>
+</body>
