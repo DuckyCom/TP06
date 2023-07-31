@@ -1,11 +1,11 @@
 @{
     ViewData["Title"] = "DetallePartido";
     string fecha=((DateTime)ViewBag.Partido.FechaFundacion).ToShortDateString();
-    string logo = "~/" + ViewBag.Partido.Logo;
+    string logo = ViewBag.Partido.Logo;
 }
 <body>
     <div class="party-info">
-        <img src="@logo" alt="Logo del Partido (no funciona por alguna razon)">
+        <img src="@logo" alt="Logo del Partido">
         <p class="founding-date">Nombre: @ViewBag.Partido.Nombre</p>
         <p class="founding-date">Fecha de fundacion: @fecha</p>
     </div>
@@ -16,7 +16,7 @@
             {
                 <form action='@Url.Action("VerDetalleCandidato", "Home")'>
                 <input type="hidden" value="@item.IdCandidato" name="IdCandidato">
-                <li>Candidato @item.IdCandidato, @item.Nombre @item.Apellido.</li> 
+                <li>Candidato @item.IdCandidato, @item.Nombre @item.Apellido.</li>
                 <input type="submit" value="Ver Informacion">
                 </form>
 

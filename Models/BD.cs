@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using Dapper;
 public static class BD
 {
-public static string _connectionString = @"Server=localhost;Database=Elecciones2023;Trusted_Connection=True;";
+public static string _connectionString = @"Server=A-PHZ2-AMI-002;Database=Elecciones2023;Trusted_Connection=True;";
 public static void AgregarCandidato(Candidato can)
 {
     string SQL = "INSERT INTO Candidato(IdPartido,Apellido,Nombre,FechaNacimiento,Foto,Postulacion) VALUES (@pIdPartido,@pApellido,@pNombre,@pFechaNacimiento,@pFoto,@pPostulacion)";

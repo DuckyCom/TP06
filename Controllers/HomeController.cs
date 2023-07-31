@@ -25,9 +25,7 @@ public class HomeController : Controller
     public IActionResult GuardarCandidato(Candidato can)
     {
         BD.AgregarCandidato(can);
-        ViewBag.Partido = BD.VerInfoPartido(can.IdPartido);
-        ViewBag.ListarCandidatos = BD.ListarCandidatos(can.IdPartido);
-        return View("VerDetallePartido");
+        return RedirectToAction("VerDetallePartido", new {IdPartido = can.IdPartido});
     }
     public IActionResult AgregarCandidato(int idPartido)
     {
